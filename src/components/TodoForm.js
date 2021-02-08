@@ -18,6 +18,13 @@ class TodoForm extends React.Component {
                name="todoname"
                placeholder="Task Name"
                onChange={(e) => this.setState({ task: e.target.value })}
+               onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                     this.props.addItem(this.state.task);
+                     this.setState({ task: "" });
+                     document.querySelector("input").value = "";
+                  }
+               }}
             />
             <button
                onClick={() => {

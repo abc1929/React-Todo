@@ -11,7 +11,8 @@ class App extends React.Component {
    constructor() {
       super();
       this.state = {
-         tasks: [],
+         tasks: JSON.parse(localStorage.tasks),
+         searchterm: "",
       };
    }
 
@@ -54,14 +55,28 @@ class App extends React.Component {
       this.setState({ tasks: newstate });
    };
 
+   filter = (tasks) => {
+      return tasks.filter((i) => i.task.search(this.state.searchterm) !== -1);
+   };
+
    render() {
+      localStorage.tasks = JSON.stringify(this.state.tasks);
       return (
          <div className="outer">
             <h2>Welcome to your Todo App!</h2>
 
             <TodoForm addItem={this.addItem} clear={this.clear} />
+            <input
+               type="text"
+               name="search"
+               className="searchbar"
+               placeholder="search"
+               onChange={(e) => {
+                  this.setState({ searchterm: e.target.value });
+               }}
+            />
             <TodoList
-               tasks={this.state.tasks}
+               tasks={this.filter(this.state.tasks)}
                toggleComplete={this.toggleComplete}
             />
          </div>

@@ -65,7 +65,8 @@ input {
 }
 
 .done {
-   background: rgb(138, 138, 138);
+   background: rgb(182, 182, 182);
+   opacity: 0.75;
 }
 
 .done button {
@@ -76,9 +77,14 @@ input {
 .done button:hover {
    transition: 0.15s;
    color: white;
-   background: rgb(59, 59, 59);
+   background: rgb(109, 109, 109);
 }
 
 button:hover {
    cursor: pointer;
+}
+
+.searchbar {
+   width: auto;
+   margin-top: 1%;
 }
