@@ -2,12 +2,11 @@ import React from "react";
 
 const Todo = (props) => {
    return (
-      <div>
-         {props.tasks.map((i) => (
-            <p key={i.id} onClick={() => props.toggleComplete(i)}>
-               {i.task}
-            </p>
-         ))}
+      <div className={props.i.completed ? "card done" : "card"}>
+         <p key={props.i.id}>{props.i.task}</p>
+         <button onClick={() => props.toggleComplete(props.i)}>
+            {props.i.completed ? "Set Incomplete" : "Set Complete"}
+         </button>
       </div>
    );
 };

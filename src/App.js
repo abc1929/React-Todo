@@ -1,6 +1,7 @@
 import React from "react";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import "./style.css";
 
 class App extends React.Component {
    // you will need a place to store your state in this component.
@@ -15,6 +16,10 @@ class App extends React.Component {
    }
 
    addItem = (taskname) => {
+      if (taskname === "") {
+         return;
+      }
+
       const newitem = {
          task: taskname,
          id: Math.abs((Math.random() * 56345823453) >>> 2) + taskname, // sort of randomly get a ID
@@ -34,6 +39,10 @@ class App extends React.Component {
             break;
          }
          targetindex++;
+         if (targetindex > this.state.tasks.length) {
+            console.log("something went wrong");
+            break;
+         }
       }
       let newstate = [...this.state.tasks];
       newstate[targetindex].completed = !newstate[targetindex].completed;
@@ -47,7 +56,7 @@ class App extends React.Component {
 
    render() {
       return (
-         <div>
+         <div className="outer">
             <h2>Welcome to your Todo App!</h2>
 
             <TodoForm addItem={this.addItem} clear={this.clear} />

@@ -16,11 +16,14 @@ class TodoForm extends React.Component {
             <input
                type="text"
                name="todoname"
+               placeholder="Task Name"
                onChange={(e) => this.setState({ task: e.target.value })}
             />
             <button
                onClick={() => {
                   this.props.addItem(this.state.task);
+                  this.setState({ task: "" });
+                  document.querySelector("input").value = "";
                }}
             >
                Add Todo

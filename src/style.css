@@ -1,0 +1,84 @@
+button {
+   border-radius: 12px;
+   padding: 8px 12px;
+   margin-left: 6px;
+   outline: none;
+   border: none;
+}
+
+button:hover {
+   transition: 0.15s;
+   color: white;
+   background: rgb(109, 109, 109);
+}
+
+button:active {
+   background: rgb(77, 77, 77);
+
+   transform: translate(1px, 2px);
+}
+
+.outer {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.cardwrapper {
+   margin-top: 1%;
+   width: 50vw;
+   max-width: 500px;
+   /* align-self: flex-start; */
+}
+
+.card {
+   align-self: flex-start;
+   display: flex;
+   justify-content: space-between;
+   margin: 2%;
+   padding: 1%;
+   border-radius: 12px;
+   background: #c3d0d6;
+   text-indent: 20px;
+   font-size: x-large;
+   color: white;
+   font-family: "Helvetica";
+   text-shadow: 0.1rem 0.1rem 0.1rem #444;
+}
+
+input {
+   padding: 8px;
+   /* display: block; */
+   border: 1px solid black;
+   /* width: 100%; */
+   border-radius: 6px;
+   /* margin-bottom: 4%; */
+}
+
+.card button {
+   height: 50%;
+   align-self: center;
+   margin-right: 2%;
+   padding: 2%;
+   text-align: center;
+}
+
+.done {
+   background: rgb(138, 138, 138);
+}
+
+.done button {
+   background: rgb(233, 233, 233);
+   color: black;
+}
+
+.done button:hover {
+   transition: 0.15s;
+   color: white;
+   background: rgb(59, 59, 59);
+}
+
+button:hover {
+   cursor: pointer;
+}
